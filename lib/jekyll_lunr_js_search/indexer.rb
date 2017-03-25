@@ -73,7 +73,8 @@ module Jekyll
             "date" => entry.date,
             "categories" => entry.categories,
             "tags" => entry.categories,
-            "body" => entry.body
+            # Remove emojis by force non-emoji encoding temporarily. See https://github.com/olivernn/lunr.js/issues/243
+            "body" => entry.body.force_encoding("ISO-8859-1").encode("UTF-8")
           }
 
           @index.add(doc)
