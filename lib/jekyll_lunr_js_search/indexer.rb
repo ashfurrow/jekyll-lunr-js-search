@@ -74,7 +74,6 @@ module Jekyll
             "categories" => entry.categories,
             "body" => entry.body
           }
-          puts entry.url
 
           @index.add(doc)
           doc.delete("body")
