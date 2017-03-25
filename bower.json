@@ -21,7 +21,7 @@
   "dependencies": {
     "date.format": "~1.2.3",
     "jquery": "~2.1.0",
-    "lunr.js": "~0.4.5",
+    "lunr.js": "~0.7.2",
     "mustache": "~0.8.1",
     "uri.js": "~1.12.0"
   }
