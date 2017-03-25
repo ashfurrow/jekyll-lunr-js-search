@@ -1,5 +1,5 @@
 require "v8"
-require "json"
+require "yajl"
 
 class V8::Object
   def to_json
@@ -7,6 +7,6 @@ class V8::Object
   end
 
   def to_hash
-    JSON.parse(to_json, :max_nesting => false)
+    Yajl::Parser.parse(to_json)
   end
 end

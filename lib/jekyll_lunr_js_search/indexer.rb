@@ -1,6 +1,6 @@
 require 'fileutils'
 require 'net/http'
-require 'json'
+require 'yajl'
 require 'uri'
 require 'v8'
 
@@ -74,6 +74,7 @@ module Jekyll
             "categories" => entry.categories,
             "body" => entry.body
           }
+          puts entry.url
 
           @index.add(doc)
           doc.delete("body")
@@ -91,7 +92,7 @@ module Jekyll
         }
 
         filepath = File.join(site.dest, filename)
-        File.open(filepath, "w") { |f| f.write(JSON.dump(total)) }
+        File.open(filepath, "w") { |f| f.write(Yajl.dump(total)) }
         Jekyll.logger.info "Lunr:", "Index ready (lunr.js v#{@lunr_version})"
         added_files = [filename]
 
@@ -131,6 +132,7 @@ module Jekyll
 
         # deep copy pages and documents (all collections, including posts)
         site.pages.each {|page| items << page.dup }
+        site.posts.each {|post| items << post.dup }
         site.documents.each {|document| items << document.dup }
 
         # only process files that will be converted to .html and only non excluded files 
