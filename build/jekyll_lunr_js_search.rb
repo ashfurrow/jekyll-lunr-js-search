@@ -72,6 +72,7 @@ module Jekyll
             "url" => entry.url,
             "date" => entry.date,
             "categories" => entry.categories,
+            "tags" => entry.categories,
             "body" => entry.body
           }
 
