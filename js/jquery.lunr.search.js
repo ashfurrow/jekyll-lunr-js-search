@@ -107,11 +107,11 @@
           return $.grep(entries, function(entry) { return entry.id === parseInt(result.ref, 10); })[0];
         });
         
-        this.displayResults(results);
+        this.displayResults(results, query);
       }
     };
     
-    LunrSearch.prototype.displayResults = function(entries) {
+    LunrSearch.prototype.displayResults = function(entries, query) {
       var $entries = this.$entries,
           $results = this.$results;
         
@@ -120,7 +120,7 @@
       if (entries.length === 0) {
         $entries.append('<p>'+ this.emptyMsg +'</p>');
       } else {
-        $entries.append(this.template({entries: entries}));
+        $entries.append(this.template({entries: entries, query: query}));
       }
       
       $results.show();
