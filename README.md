@@ -1,3 +1,13 @@
+**Note**: This is a fork that is compatible with Jekyll 2, and adds the following bug fixes or features:
+
+- Updates lunr.js to 1.0.0.
+- Passes query to Mustache template.
+- Uses Yajl JSON parser.
+- [Removes non-ISO-8859-1 characters](https://github.com/ashfurrow/jekyll-lunr-js-search/commit/f39837bf2fc7a1b2ac408b2d1386acefbb65c219) (emoji) from index due to [a bug](https://github.com/olivernn/lunr.js/issues/243) in lunr.js.
+- Adds support for Jekyll 2.x [by indexing site posts](https://github.com/ashfurrow/jekyll-lunr-js-search/commit/367d165be6db8fa1440a9d95dda18527c98063d1#diff-7afa659b015f4715a4978fc3949eba71R135).
+
+Original README follows.
+
 # [Jekyll](http://jekyllrb.com/) + [lunr.js](http://lunrjs.com/) = Static websites with powerful full-text search using JavaScript
 
 Use [lunr.js](http://lunrjs.com/) to provide simple full-text search, using JavaScript in your browser, for your Jekyll static website.
