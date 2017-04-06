@@ -52,6 +52,10 @@ module Jekyll
       # Index all pages except pages matching any value in config['lunr_excludes'] or with date['exclude_from_search']
       # The main content from each page is extracted and saved to disk as json
       def generate(site)
+        if ENV["PRODUCTION"] == "NO"
+          Jekyll.logger.info "Lunr:", 'Skipping search index...'
+          return
+        end
         Jekyll.logger.info "Lunr:", 'Creating search index...'
 
         @site = site
